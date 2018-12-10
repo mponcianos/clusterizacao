@@ -13,8 +13,6 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import DBSCAN
 from sklearn.cluster import KMeans
 
-#dataset = pd.read_excel('dataset_2000.xls')
-#dataset = pd.read_excel('dataset_38mil_sem_faz.xls')
 dataset = pd.read_excel('dataset_15mil_cpb.xls')
 
 X = dataset.iloc[:,3:8].values
