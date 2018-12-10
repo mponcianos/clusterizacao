@@ -13,6 +13,7 @@ from sklearn.cluster import AgglomerativeClustering
 from sklearn.cluster import DBSCAN
 from sklearn.cluster import KMeans
 
+# DATASET 
 dataset = pd.read_excel('dataset_15mil_cpb.xls')
 
 X = dataset.iloc[:,3:8].values
@@ -25,7 +26,6 @@ for i in range(1,11):
     kmeans.fit(X)
     cotovelos.append(kmeans.inertia_)
     print(kmeans.inertia_)
-
 
 
 plt.plot(range(1,11),cotovelos,c='b',marker="*")
@@ -62,8 +62,8 @@ pd.pivot_table(dataset, index=["competencia"], columns=agg, values="peso-cor", a
 # DBSCAN
 # 
 ############################################################
-dbscan = DBSCAN(eps=0.5, min_samples=150, metric='manhattan').fit_predict(X)
-dbscan = DBSCAN(eps=0.5, min_samples=120, metric='euclidean').fit_predict(X)
-plt.scatter(X[:,0],X[:,1], s=200, c=dbscan)
+dbscan = DBSCAN(eps=0.5, min_samples=120, metric='manhattan').fit_predict(X)
+dbscan = DBSCAN(eps=0.5, min_samples=60, metric='manhattan').fit_predict(X)
+plt.scatter(X[:,0],X[:,1], s=200, c=dbscan, marker='s')
 print (dbscan)
 
